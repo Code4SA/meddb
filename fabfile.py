@@ -59,7 +59,7 @@ def download_db_backup():
     # compress the database dump
     run('tar -czf /tmp/med_db.sql.tar.gz /tmp/med_db.sql')
     # download the zip
-    tmp = get('/tmp/med_db.sql.tar.gz', '/tmp/med_db.sql.tar.gz')
+    tmp = get('/tmp/med_db.sql.tar.gz', 'med_db.sql.tar.gz')
     if tmp.succeeded:
         print "Success"
     # now unzip and cleanup manually
