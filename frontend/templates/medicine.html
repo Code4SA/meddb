@@ -40,12 +40,12 @@
             <th>{{ _('Generic Name & Strength') }}</th>
             <th>{{ _('Date') }}</th>
             <th>{{ _('Volume') }}</th>
-            <th>{{ _('Price per') }} {{ medicine.unit_of_measure }}</th>
+            <th>{{ _('Price per') }} {{ medicine.unit_of_measure }} <span class="text-muted"> (FOB estimate)</span></th>
             </thead>
             <tbody>
 
             {% for item in procurements_and_benchmarks %}
-              {% set width = (100 * (1 - (max_price - item.unit_price_usd) / max_price)) | int%}
+              {% set width = (100 * (1 - (max_price - item.unit_price_usd_fob) / max_price)) | int%}
               {% if item.name is defined %} {# this is a benchmark #}
                 {% set benchmark = item %}
                 <tr class="benchmark-entry success">
@@ -97,7 +97,7 @@
                   </td>
                   <td class="price-bar-container">
                     <span class="pull-right">
-                    ${{ procurement.unit_price_usd }}
+                    ${{ procurement.unit_price_usd_fob }}
                     </span>
                     <div
                         class="price-bar tooltip-enabled"
@@ -199,7 +199,7 @@
                   </span>
                 </td>
                 <td>
-                  ${{ procurement.unit_price_usd }}
+                  ${{ procurement.unit_price_usd_fob }}
                 </td>
                 {% if procurement.cost_difference is defined and procurement.cost_difference!= None %}
                   <td class="

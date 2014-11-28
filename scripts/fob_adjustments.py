@@ -15,7 +15,7 @@ for procurement in procurements:
     if not procurement.incoterm:
         procurement.incoterm = unknown_incoterm
     if procurement.incoterm.code != "FOB":
-        procurement.unit_price_usd_fob = 1.0 + procurement.country.default_fob_adjustment
+        procurement.unit_price_usd_fob = procurement.unit_price_usd / (1.0 + procurement.country.default_fob_adjustment)
     else:
         procurement.unit_price_usd_fob = procurement.unit_price_usd
     db.session.add(procurement)
