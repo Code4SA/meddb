@@ -20,4 +20,6 @@ for procurement in procurements:
     else:
         procurement.unit_price_usd_fob = procurement.unit_price_usd
     db.session.add(procurement)
+
+
 db.session.commit()

@@ -183,16 +183,26 @@ def configure():
         # not all environment configs will have a newrelic.ini file present
         pass
 
-    restart()
+    # configure alembic
+    try:
+        put(env.config_dir + '/alembic.ini', '/tmp/alembic.ini')
+        sudo('mv /tmp/alembic.ini /var/www/med-db/alembic.ini')
+    except ValueError:
+        # not all environment configs will have a newrelic.ini file present
+        pass
+
+    # restart()
     return
 
 
 def deploy():
     # create a tarball of our packages
+    local('tar -czf alembic.tar.gz alembic/', capture=False)
     local('tar -czf backend.tar.gz backend/', capture=False)
     local('tar -czf frontend.tar.gz frontend/', capture=False)
 
     # upload the source tarballs to the server
+    put('alembic.tar.gz', '/tmp/alembic.tar.gz')
     put('backend.tar.gz', '/tmp/backend.tar.gz')
     put('frontend.tar.gz', '/tmp/frontend.tar.gz')
 
@@ -202,6 +212,7 @@ def deploy():
     # enter application directory
     with cd(env.project_dir):
         # and unzip new files
+        sudo('tar xzf /tmp/alembic.tar.gz')
         sudo('tar xzf /tmp/backend.tar.gz')
         sudo('tar xzf /tmp/frontend.tar.gz')
         # delete existing debug log, if present
@@ -209,8 +220,10 @@ def deploy():
             sudo('rm -f debug.log')
 
     # now that all is set up, delete the tarballs again
+    sudo('rm /tmp/alembic.tar.gz')
     sudo('rm /tmp/backend.tar.gz')
     sudo('rm /tmp/frontend.tar.gz')
+    local('rm alembic.tar.gz')
     local('rm backend.tar.gz')
     local('rm frontend.tar.gz')
 
