@@ -308,7 +308,7 @@ class Product(db.Model):
     is_generic = db.Column(db.Boolean, default=True)
     shelf_life = db.Column(db.String(64), nullable=True)
 
-    medicine_id = db.Column(db.Integer, db.ForeignKey('medicine.medicine_id', deferrable=True), nullable=True)
+    medicine_id = db.Column(db.Integer, db.ForeignKey('medicine.medicine_id', deferrable=True), nullable=True, index=True)
     medicine = db.relationship('Medicine', backref='products', lazy='joined')
     manufacturer_id = db.Column(db.Integer, db.ForeignKey('manufacturer.manufacturer_id', deferrable=True), nullable=True)
     manufacturer = db.relationship('Manufacturer', lazy='joined')
@@ -408,11 +408,11 @@ class Procurement(db.Model):
 
     currency_id = db.Column(db.Integer, db.ForeignKey('currency.currency_id', deferrable=True), nullable=False)
     currency = db.relationship('Currency', backref='procurements')
-    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id', deferrable=True), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id', deferrable=True), nullable=False, index=True)
     product = db.relationship('Product', backref='procurements', lazy='joined')
     incoterm_id = db.Column(db.Integer, db.ForeignKey('incoterm.incoterm_id', deferrable=True), nullable=True)
     incoterm = db.relationship('Incoterm')
-    country_id = db.Column(db.Integer, db.ForeignKey('country.country_id', deferrable=True), nullable=True)
+    country_id = db.Column(db.Integer, db.ForeignKey('country.country_id', deferrable=True), nullable=True, index=True)
     country = db.relationship('Country', lazy='joined')
     supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.supplier_id', deferrable=True), nullable=True)
     supplier = db.relationship('Supplier', backref='procurements')
