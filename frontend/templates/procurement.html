@@ -122,6 +122,12 @@
           </td>
         </tr>
         <tr>
+          <th>{{ _('Estimated FOB price, per') }} {{ procurement.product.medicine.unit_of_measure }}</th>
+          <td>
+            ${{ procurement.unit_price_usd_fob }} (e.g. {{ (100 * (procurement.unit_price_usd/procurement.unit_price_usd_fob - 1)) | int }}% adjustment)
+          </td>
+        </tr>
+        <tr>
           <th>{{ _('Transaction currency') }}</th>
           <td>
             {{ procurement.currency.name }}

@@ -4,7 +4,8 @@ countries = Country.query.all()
 for country in countries:
     if country.code == "ZAF":
         country.default_fob_adjustment = 0.2
-    country.default_fob_adjustment = 0.15
+    else:
+        country.default_fob_adjustment = 0.15
     db.session.add(country)
 db.session.commit()
 
