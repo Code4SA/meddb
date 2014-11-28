@@ -1,6 +1,6 @@
 from flask import g, render_template, flash, redirect, request, url_for, session
-from flask.ext.babel import gettext, ngettext
-from frontend import app, logger, babel
+from flask.ext.babel import gettext, ngettext, format_date
+from frontend import app, logger, babel, ApiException
 import requests
 from requests import ConnectionError
 import operator
@@ -24,26 +24,32 @@ app.add_url_rule('/static/<path:filename>',
 
 @babel.localeselector
 def get_locale():
+    # set locale to session if present in get variables
+    if request.args.get('locale'):
+        if app.config['LANGUAGES'].get(request.args['locale']):
+            session['locale'] = request.args['locale']
+
+    # get locale from session cookie
+    if session.get('locale'):
+        return session['locale']
+
     # # if a user is logged in, use the locale from the user settings
     # user = getattr(g, 'user', None)
     # if user is not None:
     #     return user.locale
-    # # otherwise try to guess the language from the user accept
-    # # header the browser transmits.  We support de/fr/en in this
-    # # example.  The best match wins.
-    # return request.accept_languages.best_match(['de', 'fr', 'en'])
-    return 'fr'
+    # otherwise try to guess the language from the user accept
+    # header the browser transmits. The best match wins.
+    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
 
 
 @app.template_filter('format_date')
-def jinja2_filter_format_date(date_str):
+def jinja2_filter_format_date(date_str, format='long'):
     if date_str:
         date = dateutil.parser.parse(date_str)
         native = date.replace(tzinfo=None)
-        format='%b %Y'
     else:
         return ""
-    return native.strftime(format)
+    return format_date(native, format=format)
 
 
 @app.template_filter('add_commas')
@@ -72,39 +78,6 @@ def sort_list(unsorted_list, key):
     """
 
     return sorted(unsorted_list, key=operator.itemgetter(key))
-
-
-class ApiException(Exception):
-    """
-    Class for handling all of our expected API errors.
-    """
-
-    def __init__(self, status_code, message):
-        Exception.__init__(self)
-        self.message = message
-        self.status_code = status_code
-
-    def to_dict(self):
-        rv = {
-            "code": self.status_code,
-            "message": self.message
-        }
-        return rv
-
-@app.errorhandler(ApiException)
-def handle_api_exception(error):
-    """
-    Error handler, used by flask to pass the error on to the user, rather than catching it and throwing a HTTP 500.
-    """
-
-    logger.debug(error)
-    logger.debug(request.path)
-    logger.debug(urllib.quote_plus(request.path))
-    flash(error.message + " (" + str(error.status_code) + ")", "danger")
-    if error.status_code == 401:
-        session.clear()
-        return redirect(url_for('login') + "?next=" + urllib.quote_plus(request.path))
-    return redirect(url_for('landing'))
 
 
 def load_from_api(resource_name, resource_id=None):

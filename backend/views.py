@@ -1,5 +1,4 @@
-from backend import logger, app, db
-import models
+from backend import logger, app, db, ApiException
 from models import *
 import flask
 from flask import g, request, abort, redirect, url_for, session, make_response, flash
@@ -48,35 +47,6 @@ app.add_url_rule('/static/<path:filename>',
                  endpoint='static',
                  view_func=app.send_static_file,
                  subdomain='api-med-db')
-
-
-class ApiException(Exception):
-    """
-    Class for handling all of our expected API errors.
-    """
-
-    def __init__(self, status_code, message):
-        Exception.__init__(self)
-        self.message = message
-        self.status_code = status_code
-
-    def to_dict(self):
-        rv = {
-            "code": self.status_code,
-            "message": self.message
-        }
-        return rv
-
-@app.errorhandler(ApiException)
-def handle_api_exception(error):
-    """
-    Error handler, used by flask to pass the error on to the user, rather than catching it and throwing a HTTP 500.
-    """
-
-    response = flask.jsonify(error.to_dict())
-    response.status_code = error.status_code
-    response.headers['Access-Control-Allow-Origin'] = "*"
-    return response
 
 
 def send_api_response(data_json):
@@ -378,14 +348,6 @@ def change_login():
     return send_api_response(json.dumps(out))
 
 
-@app.route('/user/<int:user_id>/', subdomain='med-db-api')
-def get_user(user_id):
-    user = User.query.get(user_id)
-    if not user:
-        raise ApiException(404, "The specified User record doesn't exist.")
-    return send_api_response(json.dumps(user.to_dict()))
-
-
 @app.route('/overview/', subdomain='med-db-api')
 def overview():
     """
@@ -504,6 +466,8 @@ def country_report(country_code):
     country_code = country_code.upper()
     if not available_countries.get(country_code):
         raise ApiException(400, "Reports are not available for the country that you specified.")
+    if g.user is None or not g.user.is_active():
+        raise ApiException(401, "You need to be logged-in in order to access this resource.")
 
     country = Country.query.filter_by(code=country_code).one()
 
