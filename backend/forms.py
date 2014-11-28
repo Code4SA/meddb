@@ -70,6 +70,7 @@ class ProcurementForm(Form):
     currency = fields.Select2Field('Currency', [validators.InputRequired()], coerce=int, choices=currency_choices, description="Select the currency of the transaction.")
     pack_price_usd = FloatField('Pack price in USD', [validators.InputRequired()])
     unit_price_usd = FloatField('Unit price in USD', [validators.InputRequired()], description="$ per <span class='uom-placeholder'>unit</span>")
+    unit_price_usd_fob = FloatField('FOB Unit price in USD (estimate)', [validators.InputRequired()], description="$ per <span class='uom-placeholder'>unit</span>")
     quantity = IntegerField('Quantity', [validators.InputRequired()], description="How many packs were bought/contracted at this price?")
     method = SelectField('Method', choices=procurement_method_choices)
     start_date = DateField('Start date', [validators.InputRequired()], format="%Y-%m-%d", widget=widgets.DatePickerWidget(), description="From when was this price valid?")
