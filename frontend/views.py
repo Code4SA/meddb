@@ -427,7 +427,7 @@ def registers():
         ("DRC", "Not yet available", ""),
         ("Lesotho", "No regulatory authority", "#"),
         ("Madagascar", "Not yet available", "#"),
-        ("Malawi", "N/A", "#"),
+        ("Malawi", "Not yet available", "#"),
         ("Mauritius", "Not yet available", "#"),
         ("Mozambique", "Not yet available", "#"),
         ("Namibia", "Register", "http://www.nmrc.com.na/LinkClick424c.pdf?fileticket=ir5cbbaayg8%3d&tabid=677&language=en-US"),
