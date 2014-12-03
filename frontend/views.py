@@ -151,7 +151,7 @@ def medicine(medicine_id):
     medicine = load_from_api('medicine', medicine_id)
 
     # find the maximum price, for making comparisons
-    max_price = medicine['procurements'][-1]['unit_price_usd']
+    max_price = medicine['procurements'][-1]['unit_price_usd_fob']
     if medicine.get('benchmarks'):
         for benchmark in medicine['benchmarks']:
             if benchmark['price'] > max_price:
@@ -161,9 +161,9 @@ def medicine(medicine_id):
     tmp = list(medicine['procurements'])
     if medicine.get('benchmarks'):
         for benchmark in medicine['benchmarks']:
-            benchmark['unit_price_usd'] = benchmark['price']
+            benchmark['unit_price_usd_fob'] = benchmark['price']
             tmp.append(benchmark)
-    procurements_and_benchmarks = sort_list(tmp, 'unit_price_usd')
+    procurements_and_benchmarks = sort_list(tmp, 'unit_price_usd_fob')
 
     # find the best procurements
     best_procurements = medicine['procurements']
@@ -181,7 +181,7 @@ def medicine(medicine_id):
             compare_unit_price = float(compare_price/compare_pack_size)
 
             for procurement in best_procurements:
-                unit_price = float(procurement['unit_price_usd'])
+                unit_price = float(procurement['unit_price_usd_fob'])
                 procurement['cost_difference'] = (unit_price - compare_unit_price) * compare_quantity * compare_pack_size
         except Exception as e:
             flash(gettext(u"There was a problem with your input."), "warning")

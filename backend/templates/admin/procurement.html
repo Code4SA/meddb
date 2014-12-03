@@ -45,6 +45,27 @@
         </div>
         {{ macros.render_field(form.pack_price_usd, class="form-control") }}
         {{ macros.render_field(form.unit_price_usd, class="form-control") }}
+        <div class="form-group">
+          <label class="col-md-4 control-label">FOB adjustment (%)</label>
+          <div class="col-md-4">
+            <input
+                class="form-control"
+                id="fob_adjustment"
+                name="fob_adjustment"
+                type="text"
+                value="{% if procurement and procurement.unit_price_usd_fob -%}
+                {{ (100 * (procurement.unit_price_usd/procurement.unit_price_usd_fob - 1)) | int }}
+                {% else -%}
+                15
+                {%- endif %}">
+          </div>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <p class="text-muted" style="margin-left: 15px;">How much of the purchase price should be attributed to transport, levies, etc.</p>
+            </div>
+          </div>
+        </div>
+        {{ macros.render_field(form.unit_price_usd_fob, class="form-control disabled") }}
         {{ macros.render_field(form.quantity, class="form-control") }}
         {{ macros.render_field(form.method, class="form-control") }}
         {{ macros.render_field(form.start_date, class="form-control") }}
@@ -79,6 +100,8 @@
       var pack_price_usd = $("#pack_price_usd")
       var exchange_rate = $("#exchange_rate")
       var unit_price_usd = $("#unit_price_usd")
+      var unit_price_usd_fob = $("#unit_price_usd_fob")
+      var fob_adjustment = $("#fob_adjustment")
       var pack_size = $("#pack_size")
       var start_date = $("#start_date")
       var end_date = $("#end_date")
@@ -117,6 +140,11 @@
         if(pack_size.val() && pack_price_usd.val()){
           var tmp = pack_price_usd.val() / pack_size.val();
           unit_price_usd.val(tmp);
+          if (fob_adjustment.val())
+          {
+            var tmp_fob = tmp / (1 + 0.01 * fob_adjustment.val())
+            unit_price_usd_fob.val(tmp_fob);
+          }
         }
       }
 
@@ -158,6 +186,12 @@
       start_date.on('change', function(){
         if(start_date.val() && !end_date.val()){
           end_date.val(start_date.val())
+        }
+      })
+
+      fob_adjustment.on('change', function(){
+        if (fob_adjustment.val()){
+          calculateUnitPrice();
         }
       })
 

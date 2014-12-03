@@ -175,6 +175,8 @@ def procurement_to_dict(obj, include_related=False):
         tmp_dict['pack_price_usd'] = float('%.3g' % tmp_dict['pack_price_usd'])
     if tmp_dict['unit_price_usd']:
         tmp_dict['unit_price_usd'] = float('%.3g' % tmp_dict['unit_price_usd'])
+    if tmp_dict['unit_price_usd_fob']:
+        tmp_dict['unit_price_usd_fob'] = float('%.3g' % tmp_dict['unit_price_usd_fob'])
     return tmp_dict
 
 
