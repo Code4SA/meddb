@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 09:14+0200\n"
+"POT-Creation-Date: 2014-12-03 12:25+0200\n"
 "PO-Revision-Date: 2014-10-22 13:48+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -405,35 +405,39 @@ msgstr ""
 msgid "SADC Registers of Medicine"
 msgstr ""
 
-#: templates/base.html:43
+#: templates/base.html:42
+msgid "Help"
+msgstr "Ajuda"
+
+#: templates/base.html:44
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/base.html:55
+#: templates/base.html:56
 msgid "Guest user"
 msgstr "Usuário convidado"
 
-#: templates/base.html:65
+#: templates/base.html:66
 msgid "Log out"
 msgstr "Terminar sessão"
 
-#: templates/base.html:66
+#: templates/base.html:67
 msgid "Change password"
 msgstr "Alterar senha"
 
-#: templates/base.html:68 templates/register.html:28
+#: templates/base.html:69 templates/register.html:28
 msgid "Register"
 msgstr "Registrar"
 
-#: templates/base.html:69
+#: templates/base.html:70
 msgid "Login"
 msgstr "Entrar"
 
-#: templates/base.html:102
+#: templates/base.html:103
 msgid "Error"
 msgstr "Erro"
 
-#: templates/base.html:125
+#: templates/base.html:126
 msgid ""
 "This website, including all of its features and content is made available"
 " through Southern African Regional Programme on Access to Medicines and "
@@ -443,7 +447,7 @@ msgstr ""
 " pelo Programa Regional da África Austral de Acesso a Medicamentos e "
 "Diagnósticos - <strong>SARPAM</strong>"
 
-#: templates/base.html:135 templates/base.html:142
+#: templates/base.html:136 templates/base.html:143
 msgid "Close"
 msgstr "Fechar"
 
@@ -845,6 +849,4 @@ msgstr ""
 
 #~ msgid "We don't currently have any registration information for this medicine."
 #~ msgstr ""
-#~ "Atualmente não temos nenhuma informação "
-#~ "de registro para este medicamento."
 

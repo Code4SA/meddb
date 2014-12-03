@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 09:14+0200\n"
+"POT-Creation-Date: 2014-12-03 12:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -405,42 +405,46 @@ msgstr ""
 msgid "SADC Registers of Medicine"
 msgstr ""
 
-#: templates/base.html:43
+#: templates/base.html:42
+msgid "Help"
+msgstr ""
+
+#: templates/base.html:44
 msgid "Admin"
 msgstr ""
 
-#: templates/base.html:55
+#: templates/base.html:56
 msgid "Guest user"
 msgstr ""
 
-#: templates/base.html:65
+#: templates/base.html:66
 msgid "Log out"
 msgstr ""
 
-#: templates/base.html:66
+#: templates/base.html:67
 msgid "Change password"
 msgstr ""
 
-#: templates/base.html:68 templates/register.html:28
+#: templates/base.html:69 templates/register.html:28
 msgid "Register"
 msgstr ""
 
-#: templates/base.html:69
+#: templates/base.html:70
 msgid "Login"
 msgstr ""
 
-#: templates/base.html:102
+#: templates/base.html:103
 msgid "Error"
 msgstr ""
 
-#: templates/base.html:125
+#: templates/base.html:126
 msgid ""
 "This website, including all of its features and content is made available"
 " through Southern African Regional Programme on Access to Medicines and "
 "Diagnostics - <strong>SARPAM</strong>"
 msgstr ""
 
-#: templates/base.html:135 templates/base.html:142
+#: templates/base.html:136 templates/base.html:143
 msgid "Close"
 msgstr ""
 
