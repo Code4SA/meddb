@@ -43,3 +43,5 @@ env/
 *.sqlite
 *.sqlite.tmp
 *.postgres
+*.tar.gz
+*.dump
