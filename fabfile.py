@@ -134,12 +134,14 @@ def setup():
 
 def setup_database():
     db_exists = sudo('psql -lqt | cut -d \| -f 1 | grep -w med_db | wc -l', user='postgres') == '1'
+    print 1
     if not db_exists:
+        print 2
         put('scripts/postgres_encoding_correction.sql', '/tmp/postgres_encoding_correction.sql')
         sudo('psql < /tmp/postgres_encoding_correction.sql', user='postgres')
         sudo('createuser med_db --pwprompt', user='postgres')
         sudo('createdb -O med_db med_db', user='postgres')
-        if os.path.exists('/tmp/med_db.sql'):
+        if os.path.exists('db.dump'):
             put('db.dump', '/tmp/med_db.sql')
             sudo('psql med_db < /tmp/med_db.sql', user='postgres')
 
