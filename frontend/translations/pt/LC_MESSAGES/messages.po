@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 13:19+0200\n"
+"POT-Creation-Date: 2014-12-03 13:39+0200\n"
 "PO-Revision-Date: 2014-10-22 13:48+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -350,6 +350,7 @@ msgid "Your password needs to be at least 6 characters long."
 msgstr "A sua senha precisa ter pelo menos 6 caracteres."
 
 #: forms.py:44 templates/country_ranking.html:20 templates/procurement.html:277
+#: templates/tenders.html:18
 msgid "Country"
 msgstr "País"
 
@@ -846,6 +847,24 @@ msgstr "Registrar"
 #: templates/tenders.html:7
 msgid "Tender Schedule"
 msgstr ""
+
+#: templates/tenders.html:19
+#, fuzzy
+msgid "Organisation"
+msgstr "Registros"
+
+#: templates/tenders.html:20
+msgid "Tender Type"
+msgstr "Tipo de Concurso"
+
+#: templates/tenders.html:21
+msgid "Start Date"
+msgstr "Data de Início"
+
+#: templates/tenders.html:22
+#, fuzzy
+msgid "Contract Duration"
+msgstr "Pessoa de contato"
 
 #~ msgid "We don't currently have any registration information for this medicine."
 #~ msgstr ""

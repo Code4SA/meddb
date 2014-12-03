@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 13:19+0200\n"
+"POT-Creation-Date: 2014-12-03 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -350,6 +350,7 @@ msgid "Your password needs to be at least 6 characters long."
 msgstr ""
 
 #: forms.py:44 templates/country_ranking.html:20 templates/procurement.html:277
+#: templates/tenders.html:18
 msgid "Country"
 msgstr ""
 
@@ -835,5 +836,21 @@ msgstr ""
 
 #: templates/tenders.html:7
 msgid "Tender Schedule"
+msgstr ""
+
+#: templates/tenders.html:19
+msgid "Organisation"
+msgstr ""
+
+#: templates/tenders.html:20
+msgid "Tender Type"
+msgstr ""
+
+#: templates/tenders.html:21
+msgid "Start Date"
+msgstr ""
+
+#: templates/tenders.html:22
+msgid "Contract Duration"
 msgstr ""
 
