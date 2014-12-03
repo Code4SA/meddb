@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 09:14+0200\n"
+"POT-Creation-Date: 2014-12-03 11:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -429,18 +429,22 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/base.html:102
+#: templates/base.html:71
+msgid "Help"
+msgstr ""
+
+#: templates/base.html:103
 msgid "Error"
 msgstr ""
 
-#: templates/base.html:125
+#: templates/base.html:126
 msgid ""
 "This website, including all of its features and content is made available"
 " through Southern African Regional Programme on Access to Medicines and "
 "Diagnostics - <strong>SARPAM</strong>"
 msgstr ""
 
-#: templates/base.html:135 templates/base.html:142
+#: templates/base.html:136 templates/base.html:143
 msgid "Close"
 msgstr ""
 

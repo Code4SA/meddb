@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 09:14+0200\n"
+"POT-Creation-Date: 2014-12-03 11:01+0200\n"
 "PO-Revision-Date: 2014-10-22 13:48+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: pt <LL@li.org>\n"
@@ -429,11 +429,15 @@ msgstr "Registrar"
 msgid "Login"
 msgstr "Entrar"
 
-#: templates/base.html:102
+#: templates/base.html:71
+msgid "Help"
+msgstr "Ajuda"
+
+#: templates/base.html:103
 msgid "Error"
 msgstr "Erro"
 
-#: templates/base.html:125
+#: templates/base.html:126
 msgid ""
 "This website, including all of its features and content is made available"
 " through Southern African Regional Programme on Access to Medicines and "
@@ -443,7 +447,7 @@ msgstr ""
 " pelo Programa Regional da África Austral de Acesso a Medicamentos e "
 "Diagnósticos - <strong>SARPAM</strong>"
 
-#: templates/base.html:135 templates/base.html:142
+#: templates/base.html:136 templates/base.html:143
 msgid "Close"
 msgstr "Fechar"
 
@@ -845,6 +849,4 @@ msgstr ""
 
 #~ msgid "We don't currently have any registration information for this medicine."
 #~ msgstr ""
-#~ "Atualmente não temos nenhuma informação "
-#~ "de registro para este medicamento."
 
