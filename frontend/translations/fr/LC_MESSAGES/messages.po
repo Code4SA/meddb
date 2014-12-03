@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 13:07+0200\n"
+"POT-Creation-Date: 2014-12-03 13:19+0200\n"
 "PO-Revision-Date: 2014-10-22 13:47+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -399,7 +399,7 @@ msgstr "Liens importants"
 
 #: templates/base.html:40
 msgid "Tenders"
-msgstr ""
+msgstr "Offres"
 
 #: templates/base.html:41
 msgid "SADC Registers of Medicine"
