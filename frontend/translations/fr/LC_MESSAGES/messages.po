@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-12-03 12:25+0200\n"
+"POT-Creation-Date: 2014-12-03 13:39+0200\n"
 "PO-Revision-Date: 2014-10-22 13:47+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -350,6 +350,7 @@ msgid "Your password needs to be at least 6 characters long."
 msgstr "Votre mot de passe doit comporter au moins 6 caractères."
 
 #: forms.py:44 templates/country_ranking.html:20 templates/procurement.html:277
+#: templates/tenders.html:18
 msgid "Country"
 msgstr "Pays"
 
@@ -399,13 +400,13 @@ msgstr "Liens importants"
 
 #: templates/base.html:40
 msgid "Tenders"
-msgstr ""
+msgstr "Offres"
 
 #: templates/base.html:41
 msgid "SADC Registers of Medicine"
 msgstr ""
 
-#: templates/base.html:42
+#: templates/base.html:42 templates/base.html:72
 msgid "Help"
 msgstr "Aide"
 
@@ -433,11 +434,11 @@ msgstr "Enregistrement"
 msgid "Login"
 msgstr "Connexion"
 
-#: templates/base.html:103
+#: templates/base.html:104
 msgid "Error"
 msgstr "Erreur"
 
-#: templates/base.html:126
+#: templates/base.html:127
 msgid ""
 "This website, including all of its features and content is made available"
 " through Southern African Regional Programme on Access to Medicines and "
@@ -448,7 +449,7 @@ msgstr ""
 "l'accès aux médicaments etproduits diagnostiques - "
 "<strong>SARPAM</strong>"
 
-#: templates/base.html:136 templates/base.html:143
+#: templates/base.html:137 templates/base.html:144
 msgid "Close"
 msgstr "Sortir"
 
@@ -847,6 +848,24 @@ msgstr "Enregistrement"
 #: templates/tenders.html:7
 msgid "Tender Schedule"
 msgstr ""
+
+#: templates/tenders.html:19
+#, fuzzy
+msgid "Organisation"
+msgstr "Enregistrement"
+
+#: templates/tenders.html:20
+msgid "Tender Type"
+msgstr "Type d'appel d'offres"
+
+#: templates/tenders.html:21
+msgid "Start Date"
+msgstr "Date de début de l'offre"
+
+#: templates/tenders.html:22
+#, fuzzy
+msgid "Contract Duration"
+msgstr "Personne de contact"
 
 #~ msgid "We don't currently have any registration information for this medicine."
 #~ msgstr ""
