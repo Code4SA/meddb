@@ -530,24 +530,30 @@ def active_medicines():
     return send_api_response(out)
 
 
+def procurements_xls(procurements, filename="procurements.xlsx"):
+	out = XLSXBuilder(procurements)
+	xlsx = out.build()
+	resp = make_response(xlsx)
+	resp.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+	resp.headers['Content-Disposition'] = "attachment;filename=" + filename
+	return resp
+
+@app.route('/xlsx/', subdomain='med-db-api')
 @app.route('/xlsx/<string:country_code>/', subdomain='med-db-api')
-def download_procurements(country_code):
+def download_procurements(country_code=None):
 
-    country_code = country_code.upper()
-    if not available_countries.get(country_code):
-        raise ApiException(400, "Reports are not available for the country that you specified.")
+    procurements = Procurement.query.filter_by(approved=True)
+    filename = "procurements.xlsx"
+    if country_code:
+        country_code = country_code.upper()
+        if not available_countries.get(country_code):
+            raise ApiException(400, "Reports are not available for the country that you specified.")
 
-    country = Country.query.filter_by(code=country_code).one()
-
-    procurements = Procurement.query.filter_by(country=country).filter_by(approved=True).order_by(Procurement.start_date.desc(), Procurement.end_date.desc()).all()
-    out = XLSXBuilder(procurements)
-    xlsx = out.build()
-    resp = make_response(xlsx)
-    resp.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    filename = "procurements-" + country.name.lower().replace(" ", "_") + ".xlsx"
-    resp.headers['Content-Disposition'] = "attachment;filename=" + filename
-    return resp
-
+        country = Country.query.filter_by(code=country_code).one()
+        procurements = procurements.filter_by(country=country)
+        filename = "procurements-" + country.name.lower().replace(" ", "_") + ".xlsx"
+    procurements = procurements.order_by(Procurement.start_date.desc(), Procurement.end_date.desc()).all()
+    return procurements_xls(procurements, filename)
 
 @login_required
 @app.route('/update-approval-status/', subdomain='med-db-api', methods=['GET', 'POST'])
