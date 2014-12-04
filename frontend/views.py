@@ -367,6 +367,13 @@ def tenders():
             "duration" : "2 Year framework",
         },
         {
+            "country" : "Swaziland",
+            "organisation" : "Central Medical Stores",
+            "type" : "International Tender for Essential Medicines and Medical Supplies",
+            "start_date" : "October 2014",
+            "duration" : "1 Year",
+        },
+        {
             "country" : "Madagascar",
             "organisation" : "SALAMA",
             "type" : "International Tender for Essential Medicines and Medical Supplies",
@@ -381,10 +388,38 @@ def tenders():
             "duration" : "2 Year framework",
         },
         {
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Essential Medicines",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+        },
+        {
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Essential Medical Supplies",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+        },
+        {
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Antiretrovial Medicines",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+        },
+        {
+            "country" : "Malawi",
+            "organisation" : "Central Medical Stores Trust",
+            "type" : "International Tender for Essential Medicines and Medical Supplies",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+        },
+        {
             "country" : "Democratic Republic of Congo (DRC)",
             "organisation" : "FEDECAME",
             "type" : "Limited International Tender for Essential Medicines and Medical Supplies",
-            "start_date" : "March 2015",
+            "start_date" : "May 2015",
             "duration" : "1 Year",
         },
         {
@@ -395,11 +430,25 @@ def tenders():
             "duration" : "1 Year (renewable)",
         },
         {
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Antiretrovial Medicines",
+            "start_date" : "August 2015",
+            "duration" : "1 Year",
+        },
+        {
             "country" : "Namibia",
             "organisation" : "Central Medical Stores",
             "type" : "International Tender for Anti-Retroviral Medicines",
             "start_date" : "June 2016",
             "duration" : "2 Year framework",
+        },
+        {
+            "country" : "South Africa",
+            "organisation" : "Department of Health",
+            "type" : "All Pharmaceutical Tenders (http://www.health.gov.za/vhb.php)",
+            "start_date" : "",
+            "duration" : "",
         },
     ]
         
