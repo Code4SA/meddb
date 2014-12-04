@@ -169,15 +169,18 @@ class Medicine(db.Model):
 
     @property
     def procurements(self):
-        out = []
         cutoff = datetime.date.today() - datetime.timedelta(days=MAX_AGE)
         products = Product.query.filter(Product.medicine_id == self.medicine_id).all()
-        if products:
-            for product in products:
-                for procurement in product.procurements:
-                    if procurement.approved:
-                        if (procurement.start_date is None or procurement.start_date > cutoff) or (procurement.end_date is None or procurement.end_date > cutoff):
-                            out.append(procurement)
+        within_cutoff = lambda procurement: \
+            (procurement.start_date is None or procurement.start_date > cutoff) \
+            or (procurement.end_date is None or procurement.end_date > cutoff)
+        
+        out = [
+            procurement 
+                for product in products
+                for procurement in product.procurements
+                if within_cutoff(procurement)
+        ]
         return out
 
     def __unicode__(self):
