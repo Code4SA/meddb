@@ -72,14 +72,6 @@ def jinja2_filter_urlencode(s):
     return Markup(s)
 
 
-def sort_list(unsorted_list, key):
-    """
-    Sort a list of dicts by the value found with the key provided.
-    """
-
-    return sorted(unsorted_list, key=operator.itemgetter(key))
-
-
 def load_from_api(resource_name, resource_id=None):
 
     query_str = resource_name + "/"
@@ -163,7 +155,7 @@ def medicine(medicine_id):
         for benchmark in medicine['benchmarks']:
             benchmark['unit_price_usd_fob'] = benchmark['price']
             tmp.append(benchmark)
-    procurements_and_benchmarks = sort_list(tmp, 'unit_price_usd_fob')
+    procurements_and_benchmarks = sorted(tmp, key=lambda x: x["unit_price_usd_fob"])
 
     # find the best procurements
     best_procurements = medicine['procurements']
