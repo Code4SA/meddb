@@ -72,14 +72,6 @@ def jinja2_filter_urlencode(s):
     return Markup(s)
 
 
-def sort_list(unsorted_list, key):
-    """
-    Sort a list of dicts by the value found with the key provided.
-    """
-
-    return sorted(unsorted_list, key=operator.itemgetter(key))
-
-
 def load_from_api(resource_name, resource_id=None):
 
     query_str = resource_name + "/"
@@ -163,7 +155,7 @@ def medicine(medicine_id):
         for benchmark in medicine['benchmarks']:
             benchmark['unit_price_usd_fob'] = benchmark['price']
             tmp.append(benchmark)
-    procurements_and_benchmarks = sort_list(tmp, 'unit_price_usd_fob')
+    procurements_and_benchmarks = sorted(tmp, key=lambda x: x["unit_price_usd_fob"])
 
     # find the best procurements
     best_procurements = medicine['procurements']
@@ -417,11 +409,18 @@ def tenders():
             "duration": "1 Year",
             },
         {
-            "country": "South Africa",
-            "organisation": "Department of Health",
-            "type": 'All Pharmaceutical Tenders: see <a href="http://www.health.gov.za/vhb.php" target="_blank">http://www.health.gov.za/vhb.php</a>',
-            "start_date": "N/A",
-            "duration": "1 Year",
+            "country" : "Swaziland",
+            "organisation" : "Central Medical Stores",
+            "type" : "International Tender for Essential Medicines and Medical Supplies",
+            "start_date" : "October 2014",
+            "duration" : "1 Year",
+            },
+        {
+            "country" : "Madagascar",
+            "organisation" : "SALAMA",
+            "type" : "International Tender for Essential Medicines and Medical Supplies",
+            "start_date" : "November 2014",
+            "duration" : "1 Year",
             },
         {
             "country": "Swaziland",
@@ -431,11 +430,39 @@ def tenders():
             "duration": "1 Year",
             },
         {
-            "country": "Lesotho",
-            "organisation": "National Drug Service Organisation",
-            "type": 'International Tender for Anti-Retroviral Medicines',
-            "start_date": "December 2014",
-            "duration": "1 Year",
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Essential Medicines",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+            },
+        {
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Essential Medical Supplies",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+            },
+        {
+            "country" : "Lesotho",
+            "organisation" : "National Drug Service Organisation",
+            "type" : "International Tender for Antiretrovial Medicines",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+            },
+        {
+            "country" : "Malawi",
+            "organisation" : "Central Medical Stores Trust",
+            "type" : "International Tender for Essential Medicines and Medical Supplies",
+            "start_date" : "March 2015",
+            "duration" : "1 Year",
+            },
+        {
+            "country" : "Democratic Republic of Congo (DRC)",
+            "organisation" : "FEDECAME",
+            "type" : "Limited International Tender for Essential Medicines and Medical Supplies",
+            "start_date" : "May 2015",
+            "duration" : "1 Year",
             },
         {
             "country": "Lesotho",
@@ -473,7 +500,6 @@ def tenders():
             "duration": "1 Year",
             },
         ]
-
 
     return render_template(
         'tenders.html',

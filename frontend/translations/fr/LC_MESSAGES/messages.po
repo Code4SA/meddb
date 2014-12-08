@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-11-28 16:35+0200\n"
+"POT-Creation-Date: 2014-12-03 13:39+0200\n"
 "PO-Revision-Date: 2014-10-22 13:47+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -349,7 +349,8 @@ msgstr "Mot de passe"
 msgid "Your password needs to be at least 6 characters long."
 msgstr "Votre mot de passe doit comporter au moins 6 caractères."
 
-#: forms.py:44 templates/country_ranking.html:20 templates/procurement.html:271
+#: forms.py:44 templates/country_ranking.html:20 templates/procurement.html:277
+#: templates/tenders.html:18
 msgid "Country"
 msgstr "Pays"
 
@@ -399,41 +400,45 @@ msgstr "Liens importants"
 
 #: templates/base.html:40
 msgid "Tenders"
-msgstr ""
+msgstr "Offres"
 
 #: templates/base.html:41
 msgid "SADC Registers of Medicine"
 msgstr ""
 
-#: templates/base.html:43
+#: templates/base.html:42 templates/base.html:72
+msgid "Help"
+msgstr "Aide"
+
+#: templates/base.html:44
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/base.html:55
+#: templates/base.html:56
 msgid "Guest user"
 msgstr "Utilisateur invité"
 
-#: templates/base.html:65
+#: templates/base.html:66
 msgid "Log out"
 msgstr "Déconnexion"
 
-#: templates/base.html:66
+#: templates/base.html:67
 msgid "Change password"
 msgstr "Modifier mot de passe"
 
-#: templates/base.html:68 templates/register.html:28
+#: templates/base.html:69 templates/register.html:28
 msgid "Register"
 msgstr "Enregistrement"
 
-#: templates/base.html:69
+#: templates/base.html:70
 msgid "Login"
 msgstr "Connexion"
 
-#: templates/base.html:102
+#: templates/base.html:104
 msgid "Error"
 msgstr "Erreur"
 
-#: templates/base.html:125
+#: templates/base.html:127
 msgid ""
 "This website, including all of its features and content is made available"
 " through Southern African Regional Programme on Access to Medicines and "
@@ -444,7 +449,7 @@ msgstr ""
 "l'accès aux médicaments etproduits diagnostiques - "
 "<strong>SARPAM</strong>"
 
-#: templates/base.html:135 templates/base.html:142
+#: templates/base.html:137 templates/base.html:144
 msgid "Close"
 msgstr "Sortir"
 
@@ -511,8 +516,8 @@ msgstr "Médicament"
 msgid "There are no recent purchases for this country."
 msgstr "Il n'y a pas des achats récents pour ce pays."
 
-#: templates/country_report.html:60 templates/medicine.html:34
-#: templates/medicine.html:168
+#: templates/country_report.html:60 templates/medicine.html:35
+#: templates/medicine.html:169
 msgid "No recent purchases recorded"
 msgstr "Aucun achat récent enregistré"
 
@@ -525,24 +530,23 @@ msgstr "Télécharger.xlsx"
 msgid "All %(num_records)d known purchases:"
 msgstr "Tous les %(num_records)d achats connus:"
 
-#: templates/country_report.html:78 templates/medicine.html:39
-#: templates/medicine.html:173 templates/procurement.html:35
+#: templates/country_report.html:78 templates/medicine.html:40
+#: templates/medicine.html:174 templates/procurement.html:35
 msgid "Procuring country"
 msgstr "Pays qui a réalise l’approvisionnement"
 
-#: templates/country_report.html:79 templates/medicine.html:40
-#: templates/medicine.html:174 templates/medicine_list.html:21
+#: templates/country_report.html:79 templates/medicine.html:41
+#: templates/medicine.html:175 templates/medicine_list.html:21
 #: templates/procurement.html:41
 msgid "Generic Name & Strength"
 msgstr "Nom générique & dosage"
 
-#: templates/country_report.html:80 templates/medicine.html:41
-#: templates/medicine.html:175 templates/procurement.html:63
+#: templates/country_report.html:80 templates/medicine.html:42
+#: templates/medicine.html:176 templates/procurement.html:63
 msgid "Date"
 msgstr "Date"
 
-#: templates/country_report.html:81 templates/medicine.html:42
-#: templates/medicine.html:176 templates/procurement.html:69
+#: templates/country_report.html:81 templates/procurement.html:69
 msgid "Terms"
 msgstr "Conditions"
 
@@ -560,18 +564,17 @@ msgid "Price per unit"
 msgstr "Prix unitaire"
 
 #: templates/country_report.html:100 templates/medicine.html:79
-#: templates/medicine.html:120 templates/medicine.html:197
+#: templates/medicine.html:107 templates/medicine.html:197
 msgid "no description available"
 msgstr "description indisponible"
 
-#: templates/country_report.html:118 templates/medicine.html:96
-#: templates/medicine.html:108 templates/medicine.html:213
-#: templates/medicine.html:225 templates/procurement.html:58
+#: templates/country_report.html:118 templates/medicine.html:95
+#: templates/medicine.html:212 templates/procurement.html:58
 #: templates/procurement.html:74 templates/procurement.html:84
-#: templates/procurement.html:180 templates/procurement.html:190
-#: templates/procurement.html:203 templates/procurement.html:216
-#: templates/procurement.html:226 templates/procurement.html:236
-#: templates/procurement.html:282 templates/procurement.html:292
+#: templates/procurement.html:186 templates/procurement.html:196
+#: templates/procurement.html:209 templates/procurement.html:222
+#: templates/procurement.html:232 templates/procurement.html:242
+#: templates/procurement.html:288 templates/procurement.html:298
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -637,10 +640,14 @@ msgid "Registrations"
 msgstr "Enregistrement"
 
 #: templates/medicine.html:24
+msgid "Patents"
+msgstr ""
+
+#: templates/medicine.html:25
 msgid "Cost Calculator"
 msgstr "Calcul de frais"
 
-#: templates/medicine.html:36
+#: templates/medicine.html:37
 msgid "Recent purchases by Member States."
 msgstr "Achats récents par Etats Membres"
 
@@ -652,38 +659,40 @@ msgstr "Prix par"
 msgid "benchmark"
 msgstr "référence"
 
-#: templates/medicine.html:136
-msgid "We don't currently have any registration information for this medicine."
+#: templates/medicine.html:125
+msgid "Registration information will be included in the database in 2015"
 msgstr ""
-"Actuellement, nous n’avons pas d’information sur l’enregistrement de ce "
-"médicament."
 
-#: templates/medicine.html:145
+#: templates/medicine.html:136
+msgid "Patent information will be included in the database in 2015"
+msgstr ""
+
+#: templates/medicine.html:146
 msgid "Find potential savings by entering your own price."
 msgstr "Trouver économies potentielles en introduisant le prix que vous avez payé."
 
-#: templates/medicine.html:149 templates/medicine.html:150
+#: templates/medicine.html:150 templates/medicine.html:151
 msgid "Number of packs"
 msgstr "Nombre de conditionnements"
 
-#: templates/medicine.html:154
+#: templates/medicine.html:155
 #, python-format
 msgid "Pack size in %(unit_of_measure)s"
 msgstr "Taille de conditionnement en %(unit_of_measure)s"
 
-#: templates/medicine.html:159
+#: templates/medicine.html:160
 msgid "Units per pack"
 msgstr "Unités par conditionnement"
 
-#: templates/medicine.html:162 templates/procurement.html:113
+#: templates/medicine.html:163 templates/procurement.html:113
 msgid "Pack price"
 msgstr "Prix par conditionnement"
 
-#: templates/medicine.html:163
+#: templates/medicine.html:164
 msgid "Pack price (USD)"
 msgstr "Prix par conditionnement (USD)"
 
-#: templates/medicine.html:165
+#: templates/medicine.html:166
 msgid "Calculate"
 msgstr "Calculer"
 
@@ -746,70 +755,74 @@ msgid "Container"
 msgstr "Récipient"
 
 #: templates/procurement.html:125
+msgid "Estimated FOB price, per"
+msgstr ""
+
+#: templates/procurement.html:131
 msgid "Transaction currency"
 msgstr "Devise de la transaction"
 
-#: templates/procurement.html:129
+#: templates/procurement.html:135
 msgid "at"
 msgstr "à"
 
-#: templates/procurement.html:129
+#: templates/procurement.html:135
 msgid "per USD"
 msgstr "par USD"
 
-#: templates/procurement.html:134
+#: templates/procurement.html:140
 msgid "Source"
 msgstr "Source"
 
-#: templates/procurement.html:150
+#: templates/procurement.html:156
 msgid "Supplier"
 msgstr "Fournisseur"
 
-#: templates/procurement.html:159 templates/procurement.html:261
+#: templates/procurement.html:165 templates/procurement.html:267
 msgid "Edit"
 msgstr "Éditer"
 
-#: templates/procurement.html:169 templates/procurement.html:277
+#: templates/procurement.html:175 templates/procurement.html:283
 msgid "Name"
 msgstr "Nom"
 
-#: templates/procurement.html:175
+#: templates/procurement.html:181
 msgid "Street Address"
 msgstr "Adresse"
 
-#: templates/procurement.html:185
+#: templates/procurement.html:191
 msgid "Contact Person"
 msgstr "Personne de contact"
 
-#: templates/procurement.html:195
+#: templates/procurement.html:201
 msgid "Email"
 msgstr "E-mail"
 
-#: templates/procurement.html:208
+#: templates/procurement.html:214
 msgid "Telephone"
 msgstr "Téléphone"
 
-#: templates/procurement.html:221
+#: templates/procurement.html:227
 msgid "Fax"
 msgstr "Fax"
 
-#: templates/procurement.html:231
+#: templates/procurement.html:237
 msgid "Website"
 msgstr "Site web"
 
-#: templates/procurement.html:243
+#: templates/procurement.html:249
 msgid "There is no Supplier information for this purchase."
 msgstr "Il n'y a pas d'information sur le fournisseur pour cet achat."
 
-#: templates/procurement.html:252
+#: templates/procurement.html:258
 msgid "Manufacturer"
 msgstr "Fabricant"
 
-#: templates/procurement.html:287
+#: templates/procurement.html:293
 msgid "Site"
 msgstr "Site"
 
-#: templates/procurement.html:299
+#: templates/procurement.html:305
 msgid "There is no Manufacturer information for this purchase."
 msgstr "Il n'y a pas d'information sur le fabricant pour cet achat."
 
@@ -835,4 +848,25 @@ msgstr "Enregistrement"
 #: templates/tenders.html:7
 msgid "Tender Schedule"
 msgstr ""
+
+#: templates/tenders.html:19
+#, fuzzy
+msgid "Organisation"
+msgstr "Enregistrement"
+
+#: templates/tenders.html:20
+msgid "Tender Type"
+msgstr "Type d'appel d'offres"
+
+#: templates/tenders.html:21
+msgid "Start Date"
+msgstr "Date de début de l'offre"
+
+#: templates/tenders.html:22
+#, fuzzy
+msgid "Contract Duration"
+msgstr "Personne de contact"
+
+#~ msgid "We don't currently have any registration information for this medicine."
+#~ msgstr ""
 

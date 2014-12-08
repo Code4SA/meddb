@@ -67,13 +67,15 @@ def download_db_backup():
 
 def s3_setup_backup():
     print "Ensure that you have edited config/production/s3cfg to your environment"
-    sudo('apt-get -y -qq install s3cmd')
-    put('config/production/s3cfg', '.s3cfg')
-    put('scripts/db-s3-backup.sh', '')
-    run('chmod u+x db-s3-backup.sh', 'db-s3-backup.sh')
+    with cd(env.project_dir):
+        sudo('apt-get -y -qq install s3cmd')
+        put('config/production/s3cfg', '.s3cfg')
+        put('scripts/db-s3-backup.sh', '')
+        run('chmod u+x db-s3-backup.sh', 'db-s3-backup.sh')
 
 def s3_db_backup():
-    sudo('./db-s3-backup.sh')
+    with cd(env.project_dir):
+        sudo('db-s3-backup.sh')
 
 def restart():
     sudo("supervisorctl restart frontend")
@@ -134,12 +136,14 @@ def setup():
 
 def setup_database():
     db_exists = sudo('psql -lqt | cut -d \| -f 1 | grep -w med_db | wc -l', user='postgres') == '1'
+    print 1
     if not db_exists:
+        print 2
         put('scripts/postgres_encoding_correction.sql', '/tmp/postgres_encoding_correction.sql')
         sudo('psql < /tmp/postgres_encoding_correction.sql', user='postgres')
         sudo('createuser med_db --pwprompt', user='postgres')
         sudo('createdb -O med_db med_db', user='postgres')
-        if os.path.exists('/tmp/med_db.sql'):
+        if os.path.exists('db.dump'):
             put('db.dump', '/tmp/med_db.sql')
             sudo('psql med_db < /tmp/med_db.sql', user='postgres')
 
