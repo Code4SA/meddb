@@ -25,7 +25,7 @@
             <tr>
                 <td>{{ tender.country }}</td>
                 <td>{{ tender.organisation }}</td>
-                <td>{{ tender.type }}</td>
+                <td>{{ tender.type | safe }}</td>
                 <td>{{ tender.start_date }}</td>
                 <td>{{ tender.duration }}</td>
             </tr>

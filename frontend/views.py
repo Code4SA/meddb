@@ -197,7 +197,7 @@ def medicine(medicine_id):
         best_procurements = best_procurements,
         procurements_and_benchmarks = procurements_and_benchmarks,
         form_args = form_args,
-    )
+        )
 
 @app.route('/procurement/<int:procurement_id>/', subdomain='med-db')
 def procurement(procurement_id):
@@ -356,7 +356,7 @@ def links():
         ("http://erc.msh.org/mainpage.cfm?file=1.0.htm&module=DMP&language=English", "MSH | International Drug Price Indicator Guide (IDPIG)", ""),
         ("http://www.haiweb.org/medicineprices/international-medicine-prices-sources.php", "haiweb.org | medicine prices", "HAI Multi Country Price Sources"),
         ("http://www.clintonhealthaccess.org/files/ARV%20Price%20Reduction%20Overview%20%2808.06.09%29.pdf", "CHAI ARV Price List", "The Clinton Foundation HIV/AIDS Initiative (CHAI) - ANTIRETROVIRAL (ARV) PRICE LIST"),
-    ]
+        ]
     return render_template(
         'links.html',
         API_HOST=API_HOST,
@@ -368,49 +368,112 @@ def links():
 def tenders():
     tenders = [
         {
-            "country" : "Namibia",
-            "organisation" : "Central Medical Stores",
-            "type" : "International Tender for Essential Medicines",
-            "start_date" : "August 2014",
-            "duration" : "2 Year framework",
-        },
+            "country": "Namibia",
+            "organisation": "Central Medical Stores",
+            "type": "International Tender for Essential Medicines",
+            "start_date": "August 2014",
+            "duration": "2 Year framework",
+            },
         {
-            "country" : "Madagascar",
-            "organisation" : "SALAMA",
-            "type" : "International Tender for Essential Medicines and Medical Supplies",
-            "start_date" : "November 2014",
-            "duration" : "1 Year",
-        },
+            "country": "Madagascar",
+            "organisation": "SALAMA",
+            "type": "International Tender for Essential Medicines and Medical Supplies",
+            "start_date": "November 2014",
+            "duration": "1 Year",
+            },
         {
-            "country" : "Tanzania",
-            "organisation" : "Medical Stores Department (MSD)",
-            "type" : "International Tender for Essential Medicines and Medical Supplies",
-            "start_date" : "March 2015",
-            "duration" : "2 Year framework",
-        },
+            "country": "Tanzania",
+            "organisation": "Medical Stores Department (MSD)",
+            "type": "International Tender for Essential Medicines and Medical Supplies",
+            "start_date": "March 2015",
+            "duration": "2 Year framework",
+            },
         {
-            "country" : "Democratic Republic of Congo (DRC)",
-            "organisation" : "FEDECAME",
-            "type" : "Limited International Tender for Essential Medicines and Medical Supplies",
-            "start_date" : "March 2015",
-            "duration" : "1 Year",
-        },
+            "country": "Democratic Republic of Congo (DRC)",
+            "organisation": "FEDECAME",
+            "type": "Limited International Tender for Essential Medicines and Medical Supplies",
+            "start_date": "May 2015",
+            "duration": "1 Year",
+            },
         {
-            "country" : "Namibia",
-            "organisation" : "Central Medical Stores",
-            "type" : "International Tender for Anti-Retroviral Medicines",
-            "start_date" : "June 2015",
-            "duration" : "1 Year (renewable)",
-        },
+            "country": "Namibia",
+            "organisation": "Central Medical Stores",
+            "type": "International Tender for Anti-Retroviral Medicines",
+            "start_date": "June 2015",
+            "duration": "1 Year (renewable)",
+            },
         {
-            "country" : "Namibia",
-            "organisation" : "Central Medical Stores",
-            "type" : "International Tender for Anti-Retroviral Medicines",
-            "start_date" : "June 2016",
-            "duration" : "2 Year framework",
-        },
-    ]
-        
+            "country": "Namibia",
+            "organisation": "Central Medical Stores",
+            "type": "International Tender for Clinical Supplies",
+            "start_date": "June 2016",
+            "duration": "2 Year framework",
+            },
+        {
+            "country": "Mauritius",
+            "organisation": "MOH&QL",
+            "type": "Annual Tenders for Medicines and Medical Supplies (34 Lots) for year 2015",
+            "start_date": "July 2014 - 17 December 2014",
+            "duration": "1 Year",
+            },
+        {
+            "country": "South Africa",
+            "organisation": "Department of Health",
+            "type": 'All Pharmaceutical Tenders: see <a href="http://www.health.gov.za/vhb.php" target="_blank">http://www.health.gov.za/vhb.php</a>',
+            "start_date": "N/A",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Swaziland",
+            "organisation": "Central Medical Stores",
+            "type": 'International Tender for Essential Medicines and Medical Supplies',
+            "start_date": "October 2014",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Lesotho",
+            "organisation": "National Drug Service Organisation",
+            "type": 'International Tender for Anti-Retroviral Medicines',
+            "start_date": "December 2014",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Lesotho",
+            "organisation": "National Drug Service Organisation",
+            "type": 'International Tender for Laboratory Items & Consumables',
+            "start_date": "January 2015",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Lesotho",
+            "organisation": "National Drug Service Organisation",
+            "type": 'International Tender for Pharmaceuticals',
+            "start_date": "February 2015",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Lesotho",
+            "organisation": "National Drug Service Organisation",
+            "type": 'International Tender for Anti-Retroviral Medicines',
+            "start_date": "April 2015",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Lesotho",
+            "organisation": "National Drug Service Organisation",
+            "type": 'International Tender for Anti-Retroviral Medicines',
+            "start_date": "April 2015",
+            "duration": "1 Year",
+            },
+        {
+            "country": "Lesotho",
+            "organisation": "National Drug Service Organisation",
+            "type": 'International Tender for Medical Supplies',
+            "start_date": "June 2015",
+            "duration": "1 Year",
+            },
+        ]
+
 
     return render_template(
         'tenders.html',
@@ -437,8 +500,8 @@ def registers():
         ("Tanzania", "Register", "http://tfda.or.tz/index.php?option=com_phocadownload&view=category&id=65&Itemid=351"),
         ("Zambia", "Registration Information", "http://www.zamra.co.zm/info"),
         ("Zimbabwe", "Register", "http://www.mcaz.co.zw/index.php/downloads/category/17-registers"),
-    ]
-        
+        ]
+
     return render_template(
         'registers.html',
         API_HOST=API_HOST,
