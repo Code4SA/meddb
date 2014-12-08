@@ -201,9 +201,9 @@ def configure():
 
 def deploy():
     with cd(env.project_dir):
-        rsync_project("alembic", "alembic/")
-        rsync_project("backend", "backend/")
-        rsync_project("frontend", "frontend/")
+        rsync_project("alembic/", "alembic")
+        rsync_project("backend/", "alembic")
+        rsync_project("frontend/", "alembic")
 
     # enter application directory
     with cd(env.project_dir):
