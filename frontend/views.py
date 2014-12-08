@@ -343,6 +343,7 @@ def legacy_redirect():
 def links():
 
     link_list = [
+        ("http://ecs.sadc.int/ppn", "Mailing list: SADC Pooled Procurement Network", "A network of officials responsible for pharmaceutical procurement within the SADC region."),
         ("http://apps.who.int/prequal/", "WHO | Prequalification of Medicines Programme", "WHO webpage for the UN Prequalification Programme for prequalification of product-manufacturing site combinations"),
         ("http://www.who.int/medicines/areas/access/ecofin/en/", "WHO | Medicines Price Information", ""),
         ("http://erc.msh.org/mainpage.cfm?file=1.0.htm&module=DMP&language=English", "MSH | International Drug Price Indicator Guide (IDPIG)", ""),
