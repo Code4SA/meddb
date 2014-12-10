@@ -201,6 +201,10 @@ def configure():
 
 def deploy():
 
+    # change ownership so that ubuntu user can do the rsync
+    sudo('chown -R ubuntu:ubuntu ' + env.project_dir)
+
+    # sync local directories to server
     rsync_project(env.project_dir + "/alembic/", "alembic")
     rsync_project(env.project_dir + "/backend/", "backend")
     rsync_project(env.project_dir + "/frontend/", "frontend")
