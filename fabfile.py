@@ -205,9 +205,9 @@ def deploy():
     sudo('chown -R ubuntu:ubuntu ' + env.project_dir)
 
     # sync local directories to server
-    rsync_project(env.project_dir + "/alembic/", "alembic")
-    rsync_project(env.project_dir + "/backend/", "backend")
-    rsync_project(env.project_dir + "/frontend/", "frontend")
+    rsync_project(env.project_dir + "/alembic/", "alembic", default_opts='-pthrvz')
+    rsync_project(env.project_dir + "/backend/", "backend", default_opts='-pthrvz')
+    rsync_project(env.project_dir + "/frontend/", "frontend", default_opts='-pthrvz')
 
     # enter application directory
     with cd(env.project_dir):
