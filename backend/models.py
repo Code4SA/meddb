@@ -44,6 +44,9 @@ class ImportantLink(db.Model):
     def __unicode__(self):
         return unicode(self.title)
 
+    def to_dict(self, include_related=False):
+        return serializers.model_to_dict(self)
+
 
 class TenderSchedule(db.Model):
 
@@ -62,6 +65,9 @@ class TenderSchedule(db.Model):
     def __unicode__(self):
         return unicode(self.country.name + ": " + self.description)
 
+    def to_dict(self, include_related=False):
+        return serializers.tender_schedule_to_dict(self)
+
 
 class MedicineRegister(db.Model):
 
@@ -76,6 +82,9 @@ class MedicineRegister(db.Model):
 
     def __unicode__(self):
         return unicode(self.country.name + ": " + self.description)
+
+    def to_dict(self, include_related=False):
+        return serializers.medicine_register_to_dict(self)
 
 
 class User(db.Model):

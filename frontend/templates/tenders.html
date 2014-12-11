@@ -17,15 +17,20 @@
             <tr>
                 <th>{{ _('Country') }}</th>
                 <th>{{ _('Organisation') }}</th>
-                <th>{{ _('Tender Type') }}</th>
+                <th>{{ _('Description') }}</th>
                 <th>{{ _('Start Date') }}</th>
                 <th>{{ _('Contract Duration') }}</th>
             </tr>
             {% for tender in tender_schedule %}
             <tr>
-                <td>{{ tender.country }}</td>
+                <td>{{ macros.render_flag(tender['country']) }} {{ tender['country']['name'] }}</td>
                 <td>{{ tender.organisation }}</td>
-                <td>{{ tender.type | safe }}</td>
+                <td>
+                  {{ tender.description }}
+                  {% if tender.url %}
+                  <br><a href="{{ tender.url }}" target="_blank"> {{ _('> see more') }}</a>
+                  {% endif %}
+                </td>
                 <td>{{ tender.start_date }}</td>
                 <td>{{ tender.duration }}</td>
             </tr>

@@ -18,14 +18,14 @@
           <th>Country</th>
           <th>Register</th>
         </tr>
-        {% for country, register, link in registers %}
+        {% for register in registers %}
           <tr>
-            <td>{{ country }}</td>
+            <td>{{ macros.render_flag(register['country']) }} {{ register['country']['name'] }}</td>
             <td>
-              {% if link %}
-                <a href="{{ link }}" target="_blank">{{ register }}</a>
+              {% if register.url %}
+                <a href="{{ register.url }}" target="_blank">{{ register.description }}</a>
               {% else %}
-                {{ register }}
+                {{ register.description }}
               {% endif %}
             </td>
           </tr>
