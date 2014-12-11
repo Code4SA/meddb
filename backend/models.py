@@ -32,6 +32,51 @@ class ApiKey(db.Model):
         return {'user_id': self.user_id, 'key': self.key}
 
 
+class ImportantLink(db.Model):
+
+    __tablename__ = "important_link"
+
+    important_link_id = db.Column(db.Integer, primary_key=True)
+    url = db.Column(db.String(256), nullable=False)
+    title = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.String(150), nullable=True)
+
+    def __unicode__(self):
+        return unicode(self.title)
+
+
+class TenderSchedule(db.Model):
+
+    __tablename__ = "tender_schedule"
+
+    tender_schedule_id = db.Column(db.Integer, primary_key=True)
+    organisation = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.String(150), nullable=False)
+    url = db.Column(db.String(256), nullable=True)
+    start_date = db.Column(db.String(150), nullable=False)
+    duration = db.Column(db.String(150), nullable=False)
+
+    country_id = db.Column(db.Integer, db.ForeignKey('country.country_id', deferrable=True), nullable=True)
+    country = db.relationship('Country')
+
+    def __unicode__(self):
+        return unicode(self.country.name + ": " + self.description)
+
+
+class MedicineRegister(db.Model):
+
+    __tablename__ = "medicine_register"
+
+    medicine_register_id = db.Column(db.Integer, primary_key=True)
+    url = db.Column(db.String(256), nullable=True)
+    description = db.Column(db.String(150), nullable=False)
+
+    country_id = db.Column(db.Integer, db.ForeignKey('country.country_id', deferrable=True), nullable=True)
+    country = db.relationship('Country')
+
+    def __unicode__(self):
+        return unicode(self.country.name + ": " + self.description)
+
 
 class User(db.Model):
 
