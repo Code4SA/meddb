@@ -21,6 +21,9 @@ api_resources = {
     'procurement': (Procurement, Procurement.procurement_id),
     'manufacturer': (Manufacturer, Manufacturer.manufacturer_id),
     'supplier': (Supplier, Supplier.supplier_id),
+    'important-link': (ImportantLink, ImportantLink.important_link_id),
+    'tender-schedule': (TenderSchedule, TenderSchedule.tender_schedule_id),
+    'medicine-register': (MedicineRegister, MedicineRegister.medicine_register_id),
     }
 
 available_countries = {
@@ -531,12 +534,12 @@ def active_medicines():
 
 
 def procurements_xls(procurements, filename="procurements.xlsx"):
-	out = XLSXBuilder(procurements)
-	xlsx = out.build()
-	resp = make_response(xlsx)
-	resp.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-	resp.headers['Content-Disposition'] = "attachment;filename=" + filename
-	return resp
+    out = XLSXBuilder(procurements)
+    xlsx = out.build()
+    resp = make_response(xlsx)
+    resp.headers['Content-Type'] = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    resp.headers['Content-Disposition'] = "attachment;filename=" + filename
+    return resp
 
 @app.route('/xlsx/', subdomain='med-db-api')
 @app.route('/xlsx/<string:country_code>/', subdomain='med-db-api')

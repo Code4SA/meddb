@@ -360,6 +360,10 @@ admin.add_view(MyRestrictedModelView(models.AvailableContainers, db.session, nam
 admin.add_view(MyRestrictedModelView(models.AvailableProcurementMethods, db.session, name="Procurement Methods", endpoint='procurement_method', category='Form Options'))
 admin.add_view(MyModelView(models.Source, db.session, name="Source", endpoint='source', category='Form Options'))
 
+admin.add_view(MyModelView(models.ImportantLink, db.session, name="Important Links", endpoint='link', category='More'))
+admin.add_view(MyModelView(models.TenderSchedule, db.session, name="Tender Schedules", endpoint='tender', category='More'))
+admin.add_view(MyModelView(models.MedicineRegister, db.session, name="Medicine Registers", endpoint='register', category='More'))
+
 admin.add_view(ManufacturerView(models.Manufacturer, db.session, name="Manufacturer", endpoint='manufacturer', category='Manufacturers/Suppliers'))
 admin.add_view(MyModelView(models.Site, db.session, name="Site", endpoint='site', category='Manufacturers/Suppliers'))
 admin.add_view(ProductView(models.Product, db.session, name="Product", endpoint='product', category='Manufacturers/Suppliers'))
