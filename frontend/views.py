@@ -378,3 +378,11 @@ def registers():
         registers=registers,
         active_nav_button="registers"
     )
+
+@app.route('/documents/', subdomain='med-db')
+def documents():
+    return render_template(
+        'procdocs.html',
+        API_HOST=API_HOST,
+        active_nav_button="procdocs"
+    )
