@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>{{ _('Registers') }}</h1>
+        <h1>{{ _('SADC Medicine Registers') }}</h1>
       </div>
     </div>
   </div>
@@ -13,18 +13,24 @@
 {% block page %}
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <table class="registers table-condensed tabled-bordered">
-            <tr>
-                <th>Country</th>
-                <th>Register</th>
-            </tr>
-            {% for country, register, link in registers %}
-            <tr>
-                <td>{{ country }}</td>
-                <td><a href="{{ link }}">{{ register }}</a></td>
-            </tr>
-            {%- endfor %}
-        </table>
+      <table class="registers table-condensed tabled-bordered">
+        <tr>
+          <th>Country</th>
+          <th>Register</th>
+        </tr>
+        {% for register in registers %}
+          <tr>
+            <td>{{ macros.render_flag(register['country']) }} {{ register['country']['name'] }}</td>
+            <td>
+              {% if register.url %}
+                <a href="{{ register.url }}" target="_blank">{{ register.description }}</a>
+              {% else %}
+                {{ register.description }}
+              {% endif %}
+            </td>
+          </tr>
+        {%- endfor %}
+      </table>
     </div>
   </div>
 {% endblock %}

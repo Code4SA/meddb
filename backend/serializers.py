@@ -235,6 +235,24 @@ def site_to_dict(obj, include_related=False):
     return tmp_dict
 
 
+def medicine_register_to_dict(obj, include_related=False):
+
+    tmp_dict = model_to_dict(obj)
+    # country
+    tmp_dict['country'] = obj.country.to_dict() if obj.country else None
+    tmp_dict.pop('country_id')
+    return tmp_dict
+
+
+def tender_schedule_to_dict(obj, include_related=False):
+
+    tmp_dict = model_to_dict(obj)
+    # country
+    tmp_dict['country'] = obj.country.to_dict() if obj.country else None
+    tmp_dict.pop('country_id')
+    return tmp_dict
+
+
 def queryset_to_json(obj_or_list, count=None, next=None, include_related=False):
     """
     Convert a single model object, or a list of model objects to dicts, before
